@@ -25,7 +25,6 @@ public class Control : MonoBehaviour
         testing = new EnemyCube(enemy, new returnScore());
         subject.AddObserver(testing);
 
-        Debug.Log(subject.getObservers());
     }
 
     // Update is called once per frame
