@@ -14,6 +14,13 @@ public class Control : MonoBehaviour
     Subject subject = new Subject();
     EnemyCube testing;
     GameObject enemy;
+    public bool reset;
+    int x; 
+    int y;
+    int z;
+    public int timer;
+    public ParticleManager pm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +37,12 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        x = Random.Range(-3, 3);
+        y = Random.Range(1, 3);
+        z = Random.Range(-3, 2);
+
+        timer++;
+
         ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
         t.text = "Score: " + score;
@@ -53,6 +65,8 @@ public class Control : MonoBehaviour
                 {
                     if (hit.transform.name == "Enemy" + i && Input.GetMouseButtonDown(0))
                     {
+                        pm.setPosition(e.GetComponent<EnemyControl>().Enemies[i].transform.position);
+                        pm.startPlay();
                         subject.Notify();
                         e.GetComponent<EnemyControl>().Enemies[i].SetActive(false);
                         //score = score + 1;
@@ -60,11 +74,17 @@ public class Control : MonoBehaviour
                     }
                 }
             }
-
-
         }
 
-
+        for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
+        {
+            if (e.GetComponent<EnemyControl>().Enemies[i].activeInHierarchy == false && timer > 30)
+            {
+                e.GetComponent<EnemyControl>().Enemies[i].SetActive(true);
+                e.GetComponent<EnemyControl>().Enemies[i].transform.position = new Vector3(x, y, z);
+                timer = 0;
+            }
+        }
     }
 
 }

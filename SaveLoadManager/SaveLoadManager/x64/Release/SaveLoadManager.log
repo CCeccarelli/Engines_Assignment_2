@@ -1,0 +1,16 @@
+﻿  SaveLoadIO.cpp
+C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\SaveLoadManager\SaveLoadIO.h(16,17): warning C4251: 'SaveLoadIO::inFile': class 'std::basic_ifstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'SaveLoadIO'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.23.28105\include\iosfwd(223): message : see declaration of 'std::basic_ifstream<char,std::char_traits<char>>'
+C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\SaveLoadManager\SaveLoadIO.h(17,18): warning C4251: 'SaveLoadIO::outFile': class 'std::basic_ofstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'SaveLoadIO'
+  Wrapper.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.23.28105\include\iosfwd(224): message : see declaration of 'std::basic_ofstream<char,std::char_traits<char>>'
+C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\SaveLoadManager\SaveLoadIO.h(16,17): warning C4251: 'SaveLoadIO::inFile': class 'std::basic_ifstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'SaveLoadIO'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.23.28105\include\iosfwd(223): message : see declaration of 'std::basic_ifstream<char,std::char_traits<char>>'
+C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\SaveLoadManager\SaveLoadIO.h(17,18): warning C4251: 'SaveLoadIO::outFile': class 'std::basic_ofstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'SaveLoadIO'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.23.28105\include\iosfwd(224): message : see declaration of 'std::basic_ofstream<char,std::char_traits<char>>'
+     Creating library C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\x64\Release\SaveLoadManager.lib and object C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\x64\Release\SaveLoadManager.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 205 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SaveLoadManager.vcxproj -> C:\Users\check\OneDrive\Desktop\Year 4 Semester 1\Game Engine Design & Implem. - 40168.201909-INFR-3110U-001\Assignment 2\SaveLoadManager\x64\Release\SaveLoadManager.dll
