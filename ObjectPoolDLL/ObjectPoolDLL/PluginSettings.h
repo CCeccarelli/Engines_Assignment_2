@@ -1,8 +1,8 @@
 #pragma once
 
-#ifdef ObjectPoolDLL_EXPORTS
+#ifdef StateMachine_EXPORTS
 #define PLUGIN_API __declspec(dllexport)
-#elif ObjectPoolDLL_IMPORTS
+#elif StateMachine_IMPORTS
 #define PLUGIN_API __declspec(dllimport)
 #else
 #define PLUGIN_API
