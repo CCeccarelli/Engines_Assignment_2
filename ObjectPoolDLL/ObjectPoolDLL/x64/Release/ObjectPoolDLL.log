@@ -1,0 +1,10 @@
+﻿  ObjectPool.cpp
+  Wrapper.cpp
+C:\Users\Christian\Desktop\School\Year 4 Semester 1\Engines\A2\ObjectPoolDLL\ObjectPoolDLL\Wrapper.h(10,55): warning C4190: 'stringReturn' has C-linkage specified, but returns UDT 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' which is incompatible with C
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(4440): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+     Creating library C:\Users\Christian\Desktop\School\Year 4 Semester 1\Engines\A2\ObjectPoolDLL\x64\Release\ObjectPoolDLL.lib and object C:\Users\Christian\Desktop\School\Year 4 Semester 1\Engines\A2\ObjectPoolDLL\x64\Release\ObjectPoolDLL.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 68 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ObjectPoolDLL.vcxproj -> C:\Users\Christian\Desktop\School\Year 4 Semester 1\Engines\A2\ObjectPoolDLL\x64\Release\ObjectPoolDLL.dll
