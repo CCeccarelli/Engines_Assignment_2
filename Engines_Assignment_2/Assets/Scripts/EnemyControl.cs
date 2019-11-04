@@ -7,11 +7,12 @@ public class EnemyControl : MonoBehaviour
     public List<GameObject> Enemies = new List<GameObject>();
     public List<Vector3> pos = new List<Vector3>();
     public GameObject prefab;
+    public bool tutorial;
     int x;
     int y;
     int z;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //int rand = Random.Range(2, 4);
 
@@ -19,7 +20,7 @@ public class EnemyControl : MonoBehaviour
         //{
         //    Enemies.Add(prefab);
         //}
-        
+        tutorial = true;
 
         for (int i = 0; i < Enemies.Count; i++)
         {
@@ -29,12 +30,15 @@ public class EnemyControl : MonoBehaviour
             pos.Add(new Vector3(x, y, z));
         }
 
-        for (int i = 0; i <= Enemies.Count - 1; i++)
+        if (tutorial == false)
         {
-            Enemies[i] = prefab;
-            Enemies[i] = Instantiate(Enemies[i], pos[i], Quaternion.identity);
-            Enemies[i].transform.localRotation = Quaternion.Euler(90, 180, 0);
-            Enemies[i].name = "Enemy" + i;
+            for (int i = 0; i <= Enemies.Count - 1; i++)
+            {
+                Enemies[i] = prefab;
+                Enemies[i] = Instantiate(Enemies[i], pos[i], Quaternion.identity);
+                Enemies[i].transform.localRotation = Quaternion.Euler(90, 180, 0);
+                Enemies[i].name = "Enemy" + i;
+            }
         }
     }
 

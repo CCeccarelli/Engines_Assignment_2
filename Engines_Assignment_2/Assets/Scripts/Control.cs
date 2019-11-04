@@ -53,38 +53,39 @@ public class Control : MonoBehaviour
     public void mouse()
     {
         //Debug.DrawRay(ray.origin, Camera.main.transform.forward * 10, Color.red);
-
-        if (Physics.Raycast(ray, out hit))
+        if (e.GetComponent<EnemyControl>().tutorial == false)
         {
-            Transform objectHit = hit.transform;
-            //Debug.Log(objectHit);
-            if (hit.transform.tag == "Enemy")
+            if (Physics.Raycast(ray, out hit))
             {
-                //Debug.Log(hit.transform.name);
-                for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
+                Transform objectHit = hit.transform;
+                //Debug.Log(objectHit);
+                if (hit.transform.tag == "Enemy")
                 {
-                    if (hit.transform.name == "Enemy" + i && Input.GetMouseButtonDown(0))
+                    //Debug.Log(hit.transform.name);
+                    for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
                     {
-                        pm.setPosition(e.GetComponent<EnemyControl>().Enemies[i].transform.position);
-                        pm.startPlay();
-                        subject.Notify();
-                        e.GetComponent<EnemyControl>().Enemies[i].SetActive(false);
-                        //score = score + 1;
-                        
+                        if (hit.transform.name == "Enemy" + i && Input.GetMouseButtonDown(0))
+                        {
+                            pm.setPosition(e.GetComponent<EnemyControl>().Enemies[i].transform.position);
+                            pm.startPlay();
+                            subject.Notify();
+                            e.GetComponent<EnemyControl>().Enemies[i].SetActive(false);
+                            //score = score + 1;
+
+                        }
                     }
                 }
             }
-        }
 
-        for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
-        {
-            if (e.GetComponent<EnemyControl>().Enemies[i].activeInHierarchy == false && timer > 30)
+            for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
             {
-                e.GetComponent<EnemyControl>().Enemies[i].SetActive(true);
-                e.GetComponent<EnemyControl>().Enemies[i].transform.position = new Vector3(x, y, z);
-                timer = 0;
+                if (e.GetComponent<EnemyControl>().Enemies[i].activeInHierarchy == false && timer > 30)
+                {
+                    e.GetComponent<EnemyControl>().Enemies[i].SetActive(true);
+                    e.GetComponent<EnemyControl>().Enemies[i].transform.position = new Vector3(x, y, z);
+                    timer = 0;
+                }
             }
         }
     }
-
 }
