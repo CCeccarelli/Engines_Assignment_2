@@ -5851,6 +5851,7 @@ MonoBehaviour:
   TutorialObj: {fileID: 59059923}
   e: {fileID: 1607098312}
   TutorialText: {fileID: 2143233588}
+  TutorialHealth: {fileID: 1575325148}
   tutorial: 0
   ListOfPos: []
 --- !u!114 &2143233588
