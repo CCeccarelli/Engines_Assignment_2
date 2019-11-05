@@ -11,23 +11,23 @@ namespace ObserverPattern
 
         public void Notify()
         {
-            for (int i = 0; i < observers.Count; i++)
+            for (int i = 0; i < observers.Count; i++)//updates list of observers to be notified
             {
                 observers[i].OnNotify();
             }
         }
 
-        public void AddObserver(Observer ob)
+        public void AddObserver(Observer ob)//add a new observer to the list
         {
             observers.Add(ob);
         }
 
-        public void RemoveObserver(Observer ob)
+        public void RemoveObserver(Observer ob)//removes observer
         {
 
         }
 
-        public List<Observer> getObservers()
+        public List<Observer> getObservers()//returns how many observers in the list
         {
             return observers;
         }

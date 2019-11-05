@@ -27,10 +27,10 @@ public class Control : MonoBehaviour
     {
         for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
         {
-            enemy = e.Enemies[i];
+            enemy = e.Enemies[i];//assigns the prefab object to the list of enemies
         }
 
-        testing = new EnemyCube(enemy, new returnScore());
+        testing = new EnemyCube(enemy, new returnScore());//assigns observer object to the function it needs
         subject.AddObserver(testing);
 
     }
@@ -44,14 +44,14 @@ public class Control : MonoBehaviour
 
         timer++;
 
-        ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);//sets the raycast to where the mouse is pointing on screen
 
         t.text = "Score: " + score;
 
         mouse();
     }
 
-    public void mouse()
+    public void mouse()// calculates where the raycast is pointing if hitting an object
     {
         //Debug.DrawRay(ray.origin, Camera.main.transform.forward * 10, Color.red);
         if (e.GetComponent<EnemyControl>().active == true)
@@ -65,11 +65,11 @@ public class Control : MonoBehaviour
                     //Debug.Log(hit.transform.name);
                     for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
                     {
-                        if (hit.transform.name == "Enemy" + i && Input.GetMouseButtonDown(0))
+                        if (hit.transform.name == "Enemy" + i && Input.GetMouseButtonDown(0))//an object is destroyed and then reset back to the screen
                         {
                             pm.setPosition(e.GetComponent<EnemyControl>().Enemies[i].transform.position);
                             pm.startPlay();
-                            subject.Notify();
+                            subject.Notify();//updates the score by notifying the subject
                             e.GetComponent<EnemyControl>().Enemies[i].SetActive(false);
                             //score = score + 1;
 
@@ -78,7 +78,7 @@ public class Control : MonoBehaviour
                 }
             }
 
-            for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)
+            for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)//when the enemy has been destory this resets them back to the screen
             {
                 if (e.GetComponent<EnemyControl>().Enemies[i].activeInHierarchy == false && timer > 30)
                 {

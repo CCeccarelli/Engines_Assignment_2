@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace ObserverPattern
 {
-    public abstract class Observer
+    public abstract class Observer//class for the observer to allow notify to be accessed by all namespace observer pattern classes
     {
         public abstract void OnNotify();
 
     }
 
-    public class EnemyCube : Observer
+    public class EnemyCube : Observer//class for the enemies to allow for the subject to know it has been destroyed
     {
         GameObject enemy;
         enemyEvents ev;

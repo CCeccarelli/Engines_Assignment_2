@@ -27,11 +27,11 @@ public class EnemyControl : MonoBehaviour
             x = Random.Range(-3, 3);
             y = Random.Range(1, 3);
             z = Random.Range(-3, 2);
-            pos.Add(new Vector3(x, y, z));
+            pos.Add(new Vector3(x, y, z));//adds a random position to the vector list of positions
         }
     }
 
-    public void initializeEnemies()
+    public void initializeEnemies()//instantiates enemies based on how many we plan to create
     {
         for (int i = 0; i <= Enemies.Count - 1; i++)
         {

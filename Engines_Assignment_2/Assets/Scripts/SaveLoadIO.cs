@@ -27,12 +27,12 @@ public class SaveLoadIO : MonoBehaviour
         if (Input.GetKey("l"))
         {
             int s = loadScore();
-            c.GetComponent<Control>().score = s;
+            c.GetComponent<Control>().score = s;//loads score from text file
         }
 
         if (Input.GetKey("s"))
         {
-            saveScore(c.GetComponent<Control>().score);
+            saveScore(c.GetComponent<Control>().score);//saves score to text file
         }
 
     }
