@@ -21,6 +21,7 @@ public class Control : MonoBehaviour
     public int timer;
     public ParticleManager pm;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,7 @@ public class Control : MonoBehaviour
     public void mouse()
     {
         //Debug.DrawRay(ray.origin, Camera.main.transform.forward * 10, Color.red);
-        if (e.GetComponent<EnemyControl>().tutorial == false)
+        if (e.GetComponent<EnemyControl>().active == true)
         {
             if (Physics.Raycast(ray, out hit))
             {
