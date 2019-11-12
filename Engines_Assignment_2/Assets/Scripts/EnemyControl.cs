@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
     public List<GameObject> Enemies = new List<GameObject>();
     public List<Vector3> pos = new List<Vector3>();
     public GameObject prefab;
+    public Control c;
     public TutorialController tut;
     public bool active;
     int x;
@@ -41,6 +42,7 @@ public class EnemyControl : MonoBehaviour
             Enemies[i].name = "Enemy" + i;
         }
         active = true;
+        c.health = 3;
     }
 
     // Update is called once per frame

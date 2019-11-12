@@ -11,9 +11,17 @@ namespace ObserverPattern
 
         public void Notify()
         {
-            for (int i = 0; i < observers.Count; i++)//updates list of observers to be notified
+            for (int i = observers.Count - 1; i < observers.Count; i++)//updates list of observers to be notified
             {
                 observers[i].OnNotify();
+            }
+        }
+
+        public void NotifyHealth()
+        {
+            for (int i = observers.Count - 1; i < observers.Count; i++)//updates list of observers to be notified
+            {
+                observers[i].OnNotifyHealth();
             }
         }
 

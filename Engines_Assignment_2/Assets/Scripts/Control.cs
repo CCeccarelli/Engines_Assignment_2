@@ -11,8 +11,12 @@ public class Control : MonoBehaviour
     Ray ray;
     public Text t;
     public int score;
+    public Text h;
+    public int health;
+    public Text s;
     Subject subject = new Subject();
     EnemyCube testing;
+    EnemyCube healthTesting;
     GameObject enemy;
     public bool reset;
     int x; 
@@ -29,10 +33,11 @@ public class Control : MonoBehaviour
         {
             enemy = e.Enemies[i];//assigns the prefab object to the list of enemies
         }
-
+        health = 3;
         testing = new EnemyCube(enemy, new returnScore());//assigns observer object to the function it needs
+        healthTesting = new EnemyCube(enemy, new returnScore());//assigns observer object to the function it needs
         subject.AddObserver(testing);
-
+        subject.AddObserver(healthTesting);
     }
 
     // Update is called once per frame
@@ -47,8 +52,28 @@ public class Control : MonoBehaviour
         ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);//sets the raycast to where the mouse is pointing on screen
 
         t.text = "Score: " + score;
+        h.text = "Health: " + health;
+        if (health > 0)
+            mouse();
 
-        mouse();
+        if (health == 0)
+        {
+            s.color = new Vector4(0, 0, 0, 1);
+            s.text = "You lost all Health Points. Your Score is " + score + " Press S to Save your Score, or Q to exit the game. If you want to see the last saved score, press L";
+            
+            if (Input.GetKey("q"))
+            {
+                #if UNITY_EDITOR
+                                UnityEditor.EditorApplication.isPlaying = false;
+                #else
+                          Application.Quit();
+                #endif
+            }
+            for (int i = 0; i < e.GetComponent<EnemyControl>().Enemies.Count; i++)
+            {
+                e.GetComponent<EnemyControl>().Enemies[i].SetActive(false);
+            }
+        }
     }
 
     public void mouse()// calculates where the raycast is pointing if hitting an object
@@ -76,6 +101,16 @@ public class Control : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    if (Input.GetMouseButtonDown(0))
+                        subject.NotifyHealth(); //updates health in case player hits the platform
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButtonUp(0))
+                    subject.NotifyHealth(); //updates health in case player misses al objects on scene
             }
 
             for (int i = 0; i <= e.GetComponent<EnemyControl>().Enemies.Count - 1; i++)//when the enemy has been destory this resets them back to the screen

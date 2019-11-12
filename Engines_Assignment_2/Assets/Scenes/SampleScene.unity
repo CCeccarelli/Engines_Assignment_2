@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a473c836cea6f0409780ec7b6852e2b, type: 3}
---- !u!1 &59059923 stripped
+--- !u!1 &30716406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7239020377672256746, guid: 7a473c836cea6f0409780ec7b6852e2b,
     type: 3}
@@ -246,7 +246,7 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 662742014}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -482,6 +482,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1858763956}
+  - {fileID: 1038096502}
   - {fileID: 210346690}
   - {fileID: 2143233586}
   m_Father: {fileID: 0}
@@ -5436,6 +5437,9 @@ MonoBehaviour:
   e: {fileID: 1607098312}
   t: {fileID: 1858763957}
   score: 0
+  h: {fileID: 1038096503}
+  health: 0
+  s: {fileID: 2143233588}
   reset: 0
   timer: 0
   pm: {fileID: 963194230}
@@ -5482,7 +5486,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1575325146
+--- !u!1 &1038096501
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5490,42 +5494,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1575325147}
-  - component: {fileID: 1575325149}
-  - component: {fileID: 1575325148}
+  - component: {fileID: 1038096502}
+  - component: {fileID: 1038096504}
+  - component: {fileID: 1038096503}
   m_Layer: 5
-  m_Name: TutorialHealth
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1575325147
+--- !u!224 &1038096502
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575325146}
+  m_GameObject: {fileID: 1038096501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2143233586}
-  m_RootOrder: 0
+  m_Father: {fileID: 662742014}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290.72, y: 158.62}
+  m_AnchoredPosition: {x: -260.23, y: 153.14001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1575325148
+--- !u!114 &1038096503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575325146}
+  m_GameObject: {fileID: 1038096501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -5551,13 +5555,13 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Health: 3'
---- !u!222 &1575325149
+--- !u!222 &1038096504
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575325146}
+  m_GameObject: {fileID: 1038096501}
   m_CullTransparentMesh: 0
 --- !u!1 &1607098311
 GameObject:
@@ -5594,7 +5598,8 @@ MonoBehaviour:
   - {fileID: 0}
   pos: []
   prefab: {fileID: 7239020377672256746, guid: 7a473c836cea6f0409780ec7b6852e2b, type: 3}
-  tut: {fileID: 0}
+  c: {fileID: 963194229}
+  tut: {fileID: 2143233587}
   active: 0
 --- !u!4 &1607098313
 Transform:
@@ -5622,7 +5627,7 @@ GameObject:
   - component: {fileID: 1858763958}
   - component: {fileID: 1858763957}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5678,7 +5683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: 'Score: 0'
 --- !u!222 &1858763958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5826,15 +5831,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1575325147}
+  m_Children: []
   m_Father: {fileID: 662742014}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.49, y: -5.48}
-  m_SizeDelta: {x: 477.6, y: 100}
+  m_AnchoredPosition: {x: 30.49, y: -39.7}
+  m_SizeDelta: {x: 478.5, y: 196.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143233587
 MonoBehaviour:
@@ -5848,10 +5852,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47b4beba15545f468ff53a4cb078c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialObj: {fileID: 59059923}
+  TutorialObj: {fileID: 30716406}
   e: {fileID: 1607098312}
   TutorialText: {fileID: 2143233588}
-  TutorialHealth: {fileID: 1575325148}
+  TutorialHealth: {fileID: 1038096503}
+  Score: {fileID: 1858763957}
+  c: {fileID: 963194229}
   tutorial: 0
   ListOfPos: []
 --- !u!114 &2143233588

@@ -9,6 +9,8 @@ public class TutorialController : MonoBehaviour
     public EnemyControl e;
     public Text TutorialText;
     public Text TutorialHealth;
+    public Text Score;
+    public Control c;
     public bool tutorial;
     bool healthTutorial;
     int timer;
@@ -38,27 +40,28 @@ public class TutorialController : MonoBehaviour
         {
             TutorialObj.SetActive(false); // Deactivate Tutorial Object
 
-            if (healthTutorial == false) // If Health Tutorial wasn't shown
+            if (timer >= 100 && healthTutorial == false) // If Health Tutorial wasn't shown
             {
+                c.health = 2;
                 TutorialText.text = "If you miss a target you'll lose health. If it reaches 0 you Lose!";
-                TutorialHealth.color = new Vector4(1, 0, 0, 1); 
-                if (timer == 100) 
+                TutorialHealth.color = new Vector4(1, 0, 0, 1);
+                if (timer == 200)
                 {
                     timer = 0;
+                    TutorialHealth.color = new Vector4(0, 0, 0, 1);
                     healthTutorial = true;
                 }
             }
-            else // If Health Tutorial has been done
+            else if (timer >= 120) // If Health Tutorial has been done
             {
                 TutorialText.text = "Hit as many enemies as possible to get a high score!";
-                if (timer == 180)
+                if (timer == 240)
                 {
                     tutorial = false;
                     e.GetComponent<EnemyControl>().initializeEnemies();
                     ListOfPos.Add(new Vector3(0f, 0f, 0f));
                     ListOfPos.Add(new Vector3(0f, 0f, 0f));
                     TutorialText.color = new Vector4(0, 0, 0, 0);
-                    TutorialHealth.color = new Vector4(0, 0, 0, 0);
                 }
             }
             timer++;
@@ -73,6 +76,9 @@ public class TutorialController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && hit.transform.tag == "tutorialObj")
                 {
                     ListOfPos.RemoveAt(0);
+                    c.score += 1; // Tutorialize Score
+                    Score.text = "Score: <color=red>1</color>";
+                    TutorialText.text = "Destroying an Enemy gives you 1 point";
                     timer = 0;
                 }
             }
@@ -83,7 +89,7 @@ public class TutorialController : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (timer == 100) // Wait to change message and activate tutorial enemy
             {
-                TutorialText.text = "Aim at the red square <enemy> and use the left mouse button to hit it";
+                TutorialText.text = "Aim at the enemy object and use the left mouse button to hit it";
                 TutorialObj.SetActive(true);
                 timer = 0;
             }
@@ -121,7 +127,8 @@ public class TutorialController : MonoBehaviour
             {
                 if (healthTutorial == false)
                 {
-                    TutorialHealth.text = "Health: <color=red>2</color>";
+                    c.health = 2;
+                    TutorialHealth.color = new Vector4(1, 0, 0, 1);
                     TutorialText.text = "If you miss a target you'll lose health. If it reaches 0 you Lose!";
                     healthTutorial = true;
                     timer = -50;
@@ -135,7 +142,8 @@ public class TutorialController : MonoBehaviour
             {
                 if (healthTutorial == false)
                 {
-                    TutorialHealth.text = "Health: <color=red>2</color>";
+                    c.health = 2;
+                    TutorialHealth.color = new Vector4(1, 0, 0, 1);
                     TutorialText.text = "If you miss a target you'll lose health. If it reaches 0 you Lose!";
                     healthTutorial = true;
                     timer = -50;
